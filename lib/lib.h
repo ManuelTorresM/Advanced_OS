@@ -5,6 +5,8 @@
 
 int sumOfTwoNumbers(int a, int b);
 
+void forking_1();
+
 class Person {
 public:
     Person(const std::string& name, int age);
