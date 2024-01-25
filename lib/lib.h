@@ -2,6 +2,8 @@
 #define LIB_H
 
 #include <string>
+#include <iostream>
+#include <unistd.h>
 
 int sumOfTwoNumbers(int a, int b);
 

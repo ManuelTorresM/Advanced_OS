@@ -1,17 +1,18 @@
 {
     "version": "2.0.0",
     "tasks": [
+        //C++ compiler tasks
 		{
             "type": "cppbuild",
             "label": "gcc.exe - C++ Compiler",
-            "command": "g++.exe",
+            "command": "g++",
             "args": [
                 "-fdiagnostics-color=always",
                 "-g",
-                "${workspaceFolder}\\src\\*.cpp",
+                "${workspaceFolder}/src/*.cpp",
                 "-o",
-                "${workspaceFolder}\\src\\${fileBasenameNoExtension}.exe",
-                "-I${workspaceFolder}\\lib",
+                "${workspaceFolder}/src/${fileBasenameNoExtension}.exe",
+                "-I${workspaceFolder}/lib",
                 "-Wall",
                 "-O2",
                 "-std=c++17"
@@ -39,26 +40,8 @@
         },
         {
             "type": "shell",
-            "label": "clean",
-            "command": "del ${fileDirname}\\${fileBasenameNoExtension}.exe",
-            "dependsOn": [],
-            "group": {
-					"kind": "build",
-					"isDefault": false
-			},
-            "presentation": {
-                "echo": false,
-                "reveal": "never",
-                "focus": false,
-                "panel": "shared",
-                "showReuseMessage": false,
-                "clear": false
-            }
-        },
-        {
-            "type": "shell",
             "label": "Run C++",
-            "command": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "options": {
                 "cwd": "${fileDirname}"
             },
@@ -84,9 +67,94 @@
         {
             "type": "shell",
             "label": "[Advanced OS] Compile & Run C++",
-            "command": "del ${workspaceFolder}\\src\\${fileBasenameNoExtension}.exe",
+            "command": "rm ${workspaceFolder}/src/${fileBasenameNoExtension}.exe",
             "dependsOn": [
                 "Run C++"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+					"kind": "build",
+					"isDefault": true
+			},
+            "presentation": {
+                "echo": false,
+                "reveal": "never",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        //C++ compiler tasks
+
+        //C compiler tasks
+		{
+            "type": "cppbuild",
+            "label": "gcc.exe - C Compiler",
+            "command": "gcc",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}/src/${fileBasenameNoExtension}.c",
+                "-o",
+                "${workspaceFolder}/src/${fileBasenameNoExtension}.exe",
+                "-I${workspaceFolder}/lib",
+                "-Wall",
+                "-O2",
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "compilador: D:\\Apps\\MinGW\\bin\\gcc.exe",
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            }
+        },
+        {
+            "type": "shell",
+            "label": "Run C",
+            "command": "${fileDirname}/${fileBasenameNoExtension}.exe",
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "dependsOn": "gcc.exe - C Compiler",
+            "dependsOrder": "sequence",
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "Run C/C++",
+            "args": [
+                ""
+            ],
+            "presentation": {
+                "echo": false,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared",
+                "showReuseMessage": true,
+                "clear": false
+            }
+        },
+        {
+            "type": "shell",
+            "label": "[Advanced OS] Compile & Run C",
+            "command": "rm ${workspaceFolder}/src/${fileBasenameNoExtension}.exe",
+            "dependsOn": [
+                "Run C"
             ],
             "dependsOrder": "sequence",
             "group": {

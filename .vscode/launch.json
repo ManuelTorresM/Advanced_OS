@@ -9,14 +9,14 @@
             "name": "Debug C/C++",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+            "program": "${fileDirname}/${fileBasenameNoExtension}.exe",
             "args": [],
             "stopAtEntry": false,
             "cwd": "${fileDirname}",
             "environment": [],
             "externalConsole": false,
             "MIMode": "gdb",
-            "miDebuggerPath": "D:\\Apps\\MinGW\\bin\\gdb.exe",
+            "miDebuggerPath": "/bin/gdb",
             "setupCommands": [
                 {
                     "description": "Habilitar la impresión con sangría para gdb",
