@@ -11,7 +11,7 @@ int main() {
         execvp ("ls", arg_list);
     }                               // 2nd part
 
-    printf ("Main program exiting...\n");
+    printf ("Main program exiting.\n");
 
     return 0;
 }
