@@ -1,18 +1,8 @@
-#include <iostream>
-#include <vector>
-#include <unistd.h>
-#include "lib.h"
 
-using namespace std;
+#include <unistd.h>
+#include <stdio.h>
 
 int main() {
-
-    cout << sumOfTwoNumbers(1,2) << endl;
-
-    const Person person("Flo", 22);
-    person.showInformation();
-
-    //forking_1();
     printf("Starting with PID %d\n", getpid());
 
     int ret = fork();
@@ -26,6 +16,5 @@ int main() {
         printf("I'm the parent and the child has pid %d!\n", ret);
     }
 
-    std::cout << std::endl;
     return 0;
 }

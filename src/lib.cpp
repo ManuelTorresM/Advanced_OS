@@ -1,6 +1,4 @@
 #include "lib.h"
-#include <iostream>
-#include <unistd.h>
 
 // Begin of Function 1
 int sumOfTwoNumbers(int a, int b) 
@@ -11,8 +9,7 @@ int sumOfTwoNumbers(int a, int b)
 
 // Begin Fork Funtion
 void forking_1(){
-  printf("Starting with PID %d!\n", getpid());
-
+  printf("Starting with PID %d\n", getpid());
 
   int ret = fork();
   printf("Both prints this message\n");
@@ -36,6 +33,7 @@ void Person::showInformation() const {
     std::cout << "Que lindo nombre <3" << std::endl;
   }
     std::cout << "Name: " << name << ", Age: " << age << std::endl;
+    std::cout << std::endl;
 }
 
 // End of Class 1
