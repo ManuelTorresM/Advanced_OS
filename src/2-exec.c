@@ -7,9 +7,17 @@
 int main() {
     char * arg_list[] = { "ls", "-l", "/", NULL };
 
-    if (fork() == 0) {              // 2nd part
+    if (fork() != 0) {              // 2nd part
         execvp ("ls", arg_list);
     }                               // 2nd part
+
+   /*
+   char * arg_list[] = {"./out" ,NULL };
+
+   if(fork() != 0){
+    execvp(arg_list[0], arg_list);
+   }
+   */
 
     printf ("Main program exiting.\n");
 
