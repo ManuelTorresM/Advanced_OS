@@ -14,6 +14,7 @@ int main(int argc, char *argv[]) {
     
     pid_t target_pid = atoi(argv[1]);
     
+    // To send the signal
     kill(target_pid, SIGUSR1);
     
     return 0;
